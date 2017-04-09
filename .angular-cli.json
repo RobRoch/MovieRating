@@ -18,10 +18,13 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
-      "styles": [
-        "styles.scss"
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.js"
       ],
-      "scripts": [],
+      "styles": [
+        "styles/vendor.scss",
+        "styles/main.scss"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
