@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 
-import { JQUERY_PROVIDER } from './services/jQuery.service';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MovieListComponent } from './movies/movie-list/movie-list.component';
@@ -15,8 +14,6 @@ import { MovieService } from './services/movie.service';
 import { MovieDetailComponent } from './movies/movie-detail/movie-detail.component';
 import { appRoutes } from './routes';
 import { MoviesComponent } from './movies/movies.component';
-import { VoteModalComponent } from './movies/vote-modal/vote-modal.component';
-import { ModalTriggerDirective } from './triggers/modal-trigger.directive';
 
 
 
@@ -29,8 +26,7 @@ import { ModalTriggerDirective } from './triggers/modal-trigger.directive';
     SearchBarComponent,
     MovieDetailComponent,
     MoviesComponent,
-    VoteModalComponent,
-    ModalTriggerDirective
+
   ],
   imports: [
     BrowserModule,
@@ -40,7 +36,7 @@ import { ModalTriggerDirective } from './triggers/modal-trigger.directive';
   ],
   providers: [
     MovieService,
-    JQUERY_PROVIDER
+
   ],
   bootstrap: [AppComponent]
 })
