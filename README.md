@@ -1,3 +1,17 @@
+
+# TODO 
+
+10.04.2017
+https://movie-ranking.herokuapp.com/
+
+- modal (remove jQuery add ngbootstrap component)
+- searchbar
+- asceding/descending
+- rating :id
+- vote :id
+- http instead of hardcoded db
+
+
 # MovieRating
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
