@@ -8,6 +8,7 @@ import { IMovie } from '../../models/movie.model';
 })
 export class MovieListComponent implements OnInit {
   
+  //pushing movie params to movie-list.component.html from [movie] in movies.component.html
   @Input() movie:IMovie;
 
   constructor() { }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IMovie } from '../../models/movie.model';
+import { MovieService } from '../../services/movie.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchBarComponent implements OnInit {
 
-  constructor() { }
+//Should i Output my [movie]?
+  searchTerm: string = "";
+  foundMovies: IMovie[];
+
+  constructor(private movieService: MovieService) { }
 
   ngOnInit() {
   }
 
+
+  
 }

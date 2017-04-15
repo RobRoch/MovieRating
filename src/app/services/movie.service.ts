@@ -1,5 +1,4 @@
-import { Injectable } from '@angular/core';
-import { Subject, Observable } from 'rxjs/RX';
+import { Injectable, EventEmitter } from '@angular/core';
 import { IMovie } from '../models/movie.model';
 
 @Injectable()
@@ -7,18 +6,22 @@ export class MovieService {
 
   constructor() { }
 
-  getMovies():Observable<IMovie[]> {
-    let subject = new Subject<IMovie[]>()
-    setTimeout(()=>{subject.next(MOVIES); subject.complete();},1000)
-    return subject;
+//getting all movies from hardcoded db (array of json)
+  getMovies() {
+    return MOVIES;
   }
 
-  getMovie(id:number):IMovie {
+//getting 1 movie json by id:, used Model IMovie for return type check.
+//return first element in the array, 
+//and my returned movie is first one that my called id: is same as movie.id attribute.
+  getMovie(id: number): IMovie {
     return MOVIES.find(movie => movie.id === id)
   }
+
 }
 
-const MOVIES:IMovie[] = [
+//Hardcoded movies
+const MOVIES: IMovie[] = [
   {
     "id": 12,
     "title": "The Empire Strikes Back",

@@ -1,13 +1,24 @@
 
 # TODO 
 
-10.04.2017
+15.04.2017
 https://movie-ranking.herokuapp.com/
 
-- modal (remove jQuery add ngbootstrap component)
+- changed my learning technique, trying to comment everything i do, so i can be able to visualize data placement. (or at least try)
+
+- modal (remove jQuery add ngbootstrap component) 
+I guess i'm not able to do this // I made it with ng2-bootstrap using ViewChild, ModalDirective and ModalModule. Sadly my modal didn't have bootstrap style.
+It's something with ng2-bootstrap working with bootstrap 3 and is not used to bootstrap4? Maybe gonna come back later with more knownledge. Removing modal -> doing input instead.
+
+- rating :id
+I'm on it at the moment, gonna try receive array of ratings for each movie and then count them and put in progess bar.
+
+- input - 
+poor styling
+input works but doesn't give me IRating data type.
+
 - searchbar
 - asceding/descending
-- rating :id
 - vote :id
 - http instead of hardcoded db
 

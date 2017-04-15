@@ -1,6 +1,20 @@
 <app-search-bar></app-search-bar>
 <div class="container">
     <div class="row justify-content-between">
-      <app-movie-list [routerLink]="['/movies', movie.id]" class="col-md-4 borderless pointer" *ngFor="let movie of movies" [movie]="movie"></app-movie-list>
+
+      <!-- used routerLink to access route to MovieDetailComponent,
+           in routes.ts i need 'movies:id', now i get two params, movies + movie.id -->
+           
+      <app-movie-list [routerLink]="['/movies', movie.id]" 
+      class="col-md-4 borderless pointer" 
+      *ngFor="let movie of movies" 
+      [movie]="movie"></app-movie-list>
+
+      <!-- ngFor let movie of movies iterates one item, next item etc. (movie reads property id from movies)
+           let movie (from movie-list.component that it's html is repeatly showing instances of movies that are declared in movies.component')
+           I think it works that way. But movie-list.component needs @Input value, i'm pushing movie.title, image to movie-list.component.html.
+           Why it's [movie]="movie" here? It makes instances of array objects movies, but i think my @Input needs reference to this [movie].
+           and my !! movie !! of movies passing others params to [movie]-->
+
     </div>
 </div>

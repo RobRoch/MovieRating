@@ -18,9 +18,9 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
-      "scripts": [
-        "../node_modules/jquery/dist/jquery.js"
-      ],
+      "scripts": [],
+      //Used bootstrap4 alpha in scss, made vendor and main files
+      //Don't know how to implement bootstrap4 to ngx-bootstrap (it's using bootstrap3, my modal didn't have bootstrap styling)
       "styles": [
         "styles/vendor.scss",
         "styles/main.scss"
@@ -54,6 +54,7 @@
     }
   },
   "defaults": {
+    // default style is scss now
     "styleExt": "scss",
     "component": {}
   }
