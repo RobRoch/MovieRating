@@ -19,12 +19,12 @@ export class MovieDetailComponent implements OnInit {
   movie:IMovie;
   rating:IRating[];
   maxValue:String;
+  averageRating:String;
   value5:String;
   value4:String;
   value3:String;
   value2:String;
   value1:String;
-
   // assigning my movieService from movie.service.ts etc.
   // same with route, taking from @angular/router/
   constructor(private movieService: MovieService,
@@ -39,6 +39,8 @@ export class MovieDetailComponent implements OnInit {
     this.movie = this.movieService.getMovie(
       +this.route.snapshot.params['id']);
 
+  
+
   //getMovieRating() used 'id' from route.snapshot.params.
     console.log(this.rating = this.ratingService.getMovieRating(+this.route.snapshot.params['id']));
 
@@ -47,14 +49,15 @@ export class MovieDetailComponent implements OnInit {
   //I shouldn't access DOM and put values from DOM to Angular. It's other way around.
   //And i shouldn't use ElementRef, so i guess i'll just make 5 values for now.
   //I could try loop but no idea how to implement my values to diff progress bars. this.(value+{{n}}) = this.ratingService.getStar(this.rating, {{n}})? sth like that.
-    console.log(this.value5 = this.ratingService.getStar(this.rating, 5));
-    console.log(this.value4 = this.ratingService.getStar(this.rating, 4));
-    console.log(this.value3 = this.ratingService.getStar(this.rating, 3));
-    console.log(this.value2 = this.ratingService.getStar(this.rating, 2));
-    console.log(this.value1 = this.ratingService.getStar(this.rating, 1));
+    this.value5 = this.ratingService.getStar(this.rating, 5);
+    this.value4 = this.ratingService.getStar(this.rating, 4);
+    this.value3 = this.ratingService.getStar(this.rating, 3);
+    this.value2 = this.ratingService.getStar(this.rating, 2);
+    this.value1 = this.ratingService.getStar(this.rating, 1);
 
   //maxValue will be highest of those 5.
-    console.log(this.maxValue = Math.max(+this.value1,+this.value2,+this.value3,+this.value4,+this.value5).toString());
+    this.maxValue = Math.max(+this.value1,+this.value2,+this.value3,+this.value4,+this.value5).toString();
+    console.log(this.averageRating = this.ratingService.getAverageRating(this.rating));
   }
 
   

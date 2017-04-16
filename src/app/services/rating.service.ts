@@ -20,12 +20,19 @@ export class RatingService {
    //could improve syntax to es6, but will leave it for now.
    getStar(rating:IRating[], star:number):String{
      var count = rating.reduce(
-      function(n, ratings){
-        return n + +(ratings.rating == star);
-      },0);
-      return count.toString();
+       function(n, ratings){
+         return n + +(ratings.rating == star);
+       },0);
+     return count.toString();
    }
 
+   //get averageRating from movie ratings. Used reduce method and managed to use shortened syntax for object argument.
+   getAverageRating(rating:IRating[]):String {
+     var sum = rating.reduce((a,b) =>{return a + b.rating},0);
+     var total = rating.length;
+     var avrg = Math.round(sum*100/total)/100;
+     return avrg.toString();
+   }
 }
 
 //Hardcoded Rating with model style.

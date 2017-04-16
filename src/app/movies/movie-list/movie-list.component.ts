@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IMovie } from '../../models/movie.model';
 
+
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
@@ -8,8 +9,10 @@ import { IMovie } from '../../models/movie.model';
 })
 export class MovieListComponent implements OnInit {
   
-  //pushing movie params to movie-list.component.html from [movie] in movies.component.html
+  //pushing movie params to movie-list.component.html from [movie] in movies.component.html - WRONG
+  //it's taking movie from movies from our parent component - ???
   @Input() movie:IMovie;
+  
 
   constructor() { }
 

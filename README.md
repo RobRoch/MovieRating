@@ -6,12 +6,17 @@ https://movie-ranking.herokuapp.com/
 
 - changed my learning technique, trying to comment everything i do, so i can be able to visualize data placement. (or at least try)
 
-- modal (remove jQuery add ngbootstrap component) 
+- modal (DEAD)
 I guess i'm not able to do this // I made it with ng2-bootstrap using ViewChild, ModalDirective and ModalModule. Sadly my modal didn't have bootstrap style.
 It's something with ng2-bootstrap working with bootstrap 3 and is not used to bootstrap4? Maybe gonna come back later with more knownledge. Removing modal -> doing input instead.
 
+
 - rating :id
-I'm on it at the moment, gonna try receive array of ratings for each movie and then count them and put in progess bar.
+Managed to get ratings for every bar.
+Problem is averageRating. Tried to maybe map my averageRating to IMovie array but i think it's bad idea.
+Gonna try to push data from movie-detail.component to movie-list.component. (DEAD)
+Average rating inside movie-detail.component,
+
 
 - input - 
 poor styling
