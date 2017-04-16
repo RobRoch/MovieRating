@@ -11,20 +11,21 @@ export class RatingService {
    }
 
    // Received filtered array with array.prototype.filter method. I'm gonna filter movie_id attribute with id path of movies.
-   getMovieRating(id:number) {
+   getMovieRating(id:number):IRating[] {
      return RATING.filter((rating) => id == rating.movie_id);
    }
 
    //used my filtered movie array, and used the star (1-5) parameter.
    //called reduce method to count those objects with star == "rating".
    //could improve syntax to es6, but will leave it for now.
-   getStar(rating:IRating[], star:number):number{
+   getStar(rating:IRating[], star:number):String{
      var count = rating.reduce(
       function(n, ratings){
         return n + +(ratings.rating == star);
       },0);
-      return count;
+      return count.toString();
    }
+
 }
 
 //Hardcoded Rating with model style.

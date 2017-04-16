@@ -17,11 +17,11 @@
                   <td><i class="fa fa-star fa-2x" aria-hidden="true"></i></td>
                 </div>
                 <div class="col-md-8">
-                  <div class="progress">
-                    <!-- used progress instead of div. Looks okayish. Binded value5 to value! -->
-                    <!-- NEEED TO REMOVE THIS STYLE OVER HERE!! AND MAYBE ADD ANIMATION LATER -->
-                    <progress #5 class="progress-bar" role="progressbar" style="width: 100%; height: 33px;" [attr.value]="value5" max="5"></progress>
-                  </div>
+
+                    <!-- used progress instead of div. Looks okayish. Binded value5 to value and maxValue! -->
+                    <!-- MAYBE ADD ANIMATION LATER -->
+                    <progress role="progressbar" [attr.value]="value5" [attr.max]="maxValue"><span>{{value5}}</span></progress>
+
                 </div>
               </div>
               <br>
@@ -33,9 +33,7 @@
                   <td><i class="fa fa-star fa-2x" aria-hidden="true"></i></td>
                 </div>
                 <div class="col-md-8">
-                  <div class="progress">
-                    <progress #1 class="progress-bar" role="progressbar" style="width: 100%; height: 33px;" [attr.value]="value5" max="5"></progress>
-                  </div>
+                    <progress role="progressbar" [attr.value]="value4" [attr.max]="maxValue"></progress>
                 </div>
               </div>
               <br>
@@ -46,9 +44,7 @@
                   <td><i class="fa fa-star fa-2x" aria-hidden="true"></i></td>
                 </div>
                 <div class="col-md-8">
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 25%; height: 33px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
+                    <progress role="progressbar" [attr.value]="value3" [attr.max]="maxValue"></progress>
                 </div>
               </div>
               <br>
@@ -58,9 +54,7 @@
                   <td><i class="fa fa-star fa-2x" aria-hidden="true"></i></td>
                 </div>
                 <div class="col-md-8">
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 25%; height: 33px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
+                    <progress role="progressbar" [attr.value]="value2" [attr.max]="maxValue"></progress>
                 </div>
               </div>
               <br>
@@ -69,9 +63,7 @@
                   <td><i class="fa fa-star fa-2x" aria-hidden="true"></i></td>
                 </div>
                 <div class="col-md-8">
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 25%; height: 33px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
+                    <progress role="progressbar" [attr.value]="value1" [attr.max]="maxValue"></progress>
                 </div>
               </div>
             </div>

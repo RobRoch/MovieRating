@@ -1,7 +1,6 @@
-//Imported ElementRef to take reference from html to my methods in component??????????
 import { Component, OnInit} from '@angular/core';
 
-//Called ActivatedRoute to access parameters of 
+//Called ActivatedRoute to access my movie cards' id.
 import { ActivatedRoute } from '@angular/router'
 import { MovieService } from '../../services/movie.service';
 import { RatingService } from '../../services/rating.service';
@@ -16,12 +15,17 @@ import { IRating } from '../../models/rating.model';
 export class MovieDetailComponent implements OnInit {
   
 
-  // assigning my movie class to IMovie model.
+  // assigning my movie class to IMovie model etc. I can use movie,rating etc in html later.
   movie:IMovie;
   rating:IRating[];
+  maxValue:String;
   value5:String;
+  value4:String;
+  value3:String;
+  value2:String;
+  value1:String;
 
-  // assigning my movieService from movie.service.ts
+  // assigning my movieService from movie.service.ts etc.
   // same with route, taking from @angular/router/
   constructor(private movieService: MovieService,
               private ratingService: RatingService,
@@ -36,11 +40,21 @@ export class MovieDetailComponent implements OnInit {
       +this.route.snapshot.params['id']);
 
   //getMovieRating() used 'id' from route.snapshot.params.
-    console.log(this.rating = this.ratingService.getMovieRating(+this.route.snapshot.params['id']))
+    console.log(this.rating = this.ratingService.getMovieRating(+this.route.snapshot.params['id']));
 
-  //My value5 is binded.
-  //Don't wanna make 5 values for each progress. Gonna figure it out.
-    console.log(this.value5 = this.ratingService.getStar(this.rating, 5).toString())
+  //My value is binded.
+  //Don't wanna make 5 values for each progress. Gonna figure it out somehow.
+  //I shouldn't access DOM and put values from DOM to Angular. It's other way around.
+  //And i shouldn't use ElementRef, so i guess i'll just make 5 values for now.
+  //I could try loop but no idea how to implement my values to diff progress bars. this.(value+{{n}}) = this.ratingService.getStar(this.rating, {{n}})? sth like that.
+    console.log(this.value5 = this.ratingService.getStar(this.rating, 5));
+    console.log(this.value4 = this.ratingService.getStar(this.rating, 4));
+    console.log(this.value3 = this.ratingService.getStar(this.rating, 3));
+    console.log(this.value2 = this.ratingService.getStar(this.rating, 2));
+    console.log(this.value1 = this.ratingService.getStar(this.rating, 1));
+
+  //maxValue will be highest of those 5.
+    console.log(this.maxValue = Math.max(+this.value1,+this.value2,+this.value3,+this.value4,+this.value5).toString());
   }
 
   
