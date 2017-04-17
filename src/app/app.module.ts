@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, JsonpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { MovieService } from './services/movie.service';
@@ -32,11 +32,12 @@ import { MoviesComponent } from './movies/movies.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+    JsonpModule,
     RouterModule.forRoot(appRoutes),
   ],
   providers: [
     MovieService,
-    RatingService
+    RatingService,
   ],
   bootstrap: [AppComponent]
 })

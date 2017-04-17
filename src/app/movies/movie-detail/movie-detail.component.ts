@@ -41,8 +41,7 @@ export class MovieDetailComponent implements OnInit {
   
   ngOnInit() {
 
-    this.movie = this.movieService.getMovie(
-      +this.route.snapshot.params['id']);
+    this.movieService.getMovie(+this.route.snapshot.params['id']).subscribe(movie => this.movie = movie);
 
   //getMovieRating() used 'id' from route.snapshot.params.
     this.rating = this.ratingService.getMovieRating(+this.route.snapshot.params['id']);

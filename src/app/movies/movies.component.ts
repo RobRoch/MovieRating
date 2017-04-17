@@ -20,8 +20,7 @@ export class MoviesComponent implements OnInit {
   ngOnInit() {
   //onInit i wanna receive movies so i'm calling service with my method getMovies(). It's not streamed data at the moment.
   //assigning to this.movies array to use them in my html.
-    console.log(this.movieService.getMovies()
-                      .subscribe(movies => this.movies = movies));
+    console.log(this.movieService.getMovies().subscribe(movies => this.movies = movies));
     console.log(this.movies);
   }
     
