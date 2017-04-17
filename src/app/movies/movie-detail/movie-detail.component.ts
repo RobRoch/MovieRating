@@ -25,6 +25,9 @@ export class MovieDetailComponent implements OnInit {
   value3:String;
   value2:String;
   value1:String;
+  rated:IRating;
+  id:number;
+
   // assigning my movieService from movie.service.ts etc.
   // same with route, taking from @angular/router/
   constructor(private movieService: MovieService,
@@ -35,14 +38,14 @@ export class MovieDetailComponent implements OnInit {
   // + makes a number from String, getMovie() needs a number :id
   // i'm assigning this.movie to be one from getMovie() method.
   // getMovie(id) needs movie.id, when i click on card this route.snapshot.params "knows" which one got what id.
+  
   ngOnInit() {
+
     this.movie = this.movieService.getMovie(
       +this.route.snapshot.params['id']);
 
-  
-
   //getMovieRating() used 'id' from route.snapshot.params.
-    console.log(this.rating = this.ratingService.getMovieRating(+this.route.snapshot.params['id']));
+    this.rating = this.ratingService.getMovieRating(+this.route.snapshot.params['id']);
 
   //My value is binded.
   //Don't wanna make 5 values for each progress. Gonna figure it out somehow.
@@ -57,14 +60,26 @@ export class MovieDetailComponent implements OnInit {
 
   //maxValue will be highest of those 5.
     this.maxValue = Math.max(+this.value1,+this.value2,+this.value3,+this.value4,+this.value5).toString();
-    console.log(this.averageRating = this.ratingService.getAverageRating(this.rating));
+
+  //averageRating gives 2 decimal places.
+    this.averageRating = this.ratingService.getAverageRating(this.rating);
   }
 
   
-
   //Ok i'm gonna try to get values here. I need IRating model to receive but for now I'll get just value.
   getRating(formValues) {
-    console.log(formValues.rating);
+    //taking highest id from array +1
+    this.id = this.ratingService.getHighestId(this.rating)+1;
+    //getting :IRating with diff id, movie_id param and our formValue.
+    this.rated = {
+      "id":this.id,
+      "movie_id":+this.route.snapshot.params['id'],
+      "rating":formValues.rating
+    }
+    //i Guess that's enough for now. I need to push it anyway with http.
+    this.rating = this.rating.concat(this.rated);
   }
 
+
 }
+

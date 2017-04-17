@@ -17,7 +17,10 @@ export class SearchBarComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  //got string data of searchbox.
+  // searchMovies(searchTerm) {
+  //   console.log(this.movieService.searchMovies(searchTerm));
+  // }
 
   
 }

@@ -30,8 +30,15 @@ export class RatingService {
    getAverageRating(rating:IRating[]):String {
      var sum = rating.reduce((a,b) =>{return a + b.rating},0);
      var total = rating.length;
-     var avrg = Math.round(sum*100/total)/100;
+     var avrg = (Math.round(sum*100/total)/100).toFixed(2);
      return avrg.toString();
+   }
+
+   //taking highest id from array. Math.max.apply(Math,array). And then i use map to only get id from whole rating.
+   getHighestId(rating:IRating[]) {
+     return Math.max.apply(Math,
+        rating.map(function(attr){
+           return attr.id}))
    }
 }
 

@@ -10,7 +10,8 @@ import { IMovie } from '../models/movie.model';
 export class MoviesComponent implements OnInit {
 
   //checking my movies to be array of IMovie[] model.
-  movies:any;
+  movies:IMovie[];
+
   //calling private moviesService: MovieService in constructor 
   //it's assigning MovieService to this class property of movieService.
   //my methods gonna go look to this constructor and then constructor moves them to movie.service.ts to get themselves.
@@ -19,7 +20,10 @@ export class MoviesComponent implements OnInit {
   ngOnInit() {
   //onInit i wanna receive movies so i'm calling service with my method getMovies(). It's not streamed data at the moment.
   //assigning to this.movies array to use them in my html.
-    console.log(this.movies = this.movieService.getMovies());
+    console.log(this.movieService.getMovies()
+                      .subscribe(movies => this.movies = movies));
+    console.log(this.movies);
   }
+    
 
 }
