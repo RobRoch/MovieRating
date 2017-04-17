@@ -29,12 +29,26 @@ export class MovieService {
 
 //TODO SEARCH!!!
   searchMovies(str: string) {
-    return MOVIES;
+    return ;
   }
 
 }
 
 //Hardcoded movies (i'll comment them now)
-const MOVIES: IMovie[] = [
-  
-]
+// const MOVIES: IMovie[] = [
+  // {
+  //   "id": 12,
+  //   "title": "The Empire Strikes Back",
+  //   "poster": "http://www.bitrebels.com/wp-content/uploads/2011/05/Minimalistic-Star-Wars-Poster-Design-2.jpg"
+  // },
+  // {
+  //   "id": 13,
+  //   "title": "Return of the Jedi",
+  //   "poster": "http://www.bitrebels.com/wp-content/uploads/2011/05/Minimalistic-Star-Wars-Poster-Design-3.jpg"
+  // },
+  // {
+  //   "id": 11,
+  //   "title": "A New Hope",
+  //   "poster": "http://www.bitrebels.com/wp-content/uploads/2011/05/Minimalistic-Star-Wars-Poster-Design-1.jpg"
+  // }
+// ]
