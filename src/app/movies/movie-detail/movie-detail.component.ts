@@ -20,7 +20,6 @@ export class MovieDetailComponent implements OnInit {
   movie:IMovie;
   rating:IRating[];
   maxValue:String;
-  averageRating:String;
   value5:String;
   value4:String;
   value3:String;
@@ -29,6 +28,7 @@ export class MovieDetailComponent implements OnInit {
   rated:IRating;
   id:number;
   paramId:number=+this.route.snapshot.params['id']
+  Math:any;
 
 
   // assigning my movieService from movie.service.ts etc.
@@ -37,6 +37,12 @@ export class MovieDetailComponent implements OnInit {
               private ratingService: RatingService,
               private route:ActivatedRoute,
               private router: Router) {
+
+              this.Math = Math;
+  }
+
+  getRatings():void {
+    this.ratingService.getMovieRating(this.paramId).subscribe((rating) => this.rating = rating);
   }
 
   getRating():void {
@@ -56,10 +62,13 @@ export class MovieDetailComponent implements OnInit {
 
   //getMovieRating() used 'id' from route.snapshot.params.
   //I DONT NEED THIS ANY MORE
-    this.ratingService.getMovieRating(this.paramId).subscribe((rating) => this.rating = rating);
-    
+   
+    this.getRatings(); 
     this.getRating();
-  
+    
+  // this.ratingService.getAverageRating(this.paramId).subscribe(avrRating => console.log(avrRating));
+
+
   //My value is binded.
   //Don't wanna make 5 values for each progress. Gonna figure it out somehow.
   //I shouldn't access DOM and put values from DOM to Angular. It's other way around.

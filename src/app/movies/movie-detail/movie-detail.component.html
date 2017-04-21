@@ -22,7 +22,7 @@
                 <div class="col-md-6">
                     <!-- used progress instead of div. Looks okayish. Binded value5 to value and maxValue! -->
                     <!-- MAYBE ADD ANIMATION LATER -->
-                    <progress role="progressbar" [attr.value]="value5" [attr.max]="200"></progress>
+                    <progress role="progressbar" [attr.value]="value5" [attr.max]="250"></progress>
 
                 </div>
               </div>
@@ -38,7 +38,7 @@
                     <h5 class="number"> {{value4}} </h5>
                 </div>
                 <div class="col-md-6">
-                    <progress role="progressbar" [attr.value]="value4" [attr.max]="200"></progress>
+                    <progress role="progressbar" [attr.value]="value4" [attr.max]="250"></progress>
                 </div>
               </div>
               <br>
@@ -52,7 +52,7 @@
                     <h5 class="number"> {{value3}} </h5>
                 </div>
                 <div class="col-md-6">
-                    <progress role="progressbar" [attr.value]="value3" [attr.max]="200"></progress>
+                    <progress role="progressbar" [attr.value]="value3" [attr.max]="250"></progress>
                 </div>
               </div>
               <br>
@@ -65,7 +65,7 @@
                     <h5 class="number"> {{value2}} </h5>
                 </div>
                 <div class="col-md-6">
-                    <progress role="progressbar" [attr.value]="value2" [attr.max]="200"></progress>
+                    <progress role="progressbar" [attr.value]="value2" [attr.max]="250"></progress>
                 </div>
               </div>
               <br>
@@ -77,7 +77,7 @@
                     <h5 class="number"> {{value1}} </h5>
                 </div>
                 <div class="col-md-6">
-                    <progress role="progressbar" [attr.value]="value1" [attr.max]="200"></progress>
+                    <progress role="progressbar" [attr.value]="value1" [attr.max]="250"></progress>
                 </div>
               </div>
               <br>
@@ -86,7 +86,7 @@
                   <h5 class="average">AVERAGE RATING:</h5>
                 </div>
                 <div class="col-md-7 div-start">
-                  <h5 class="number">{{averageRating}} / 5.00</h5>
+                  <h5 class="number">{{(this.Math.round((value1*1 + value2*2 + value3*3 + value4*4 + value5*5)*100/(value1*1+value2*1+value3*1+value4*1+value5*1))/100).toFixed(2)}} / 5.00</h5>
                 </div>
               </div>
             </div>
