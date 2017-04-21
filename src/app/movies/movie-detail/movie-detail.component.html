@@ -16,11 +16,13 @@
                   <td><i class="fa fa-star fa-2x" aria-hidden="true"></i></td>
                   <td><i class="fa fa-star fa-2x" aria-hidden="true"></i></td>
                 </div>
-                <div class="col-md-7">
-
+                <div class="col-md-1 div-start">
+                    <h5 class="number"> {{value5}} </h5>
+                </div>
+                <div class="col-md-6">
                     <!-- used progress instead of div. Looks okayish. Binded value5 to value and maxValue! -->
                     <!-- MAYBE ADD ANIMATION LATER -->
-                    <progress role="progressbar" [attr.value]="value5" [attr.max]="maxValue"><span>{{value5}}</span></progress>
+                    <progress role="progressbar" [attr.value]="value5" [attr.max]="200"></progress>
 
                 </div>
               </div>
@@ -32,8 +34,11 @@
                   <td><i class="fa fa-star fa-2x" aria-hidden="true"></i></td>
                   <td><i class="fa fa-star fa-2x" aria-hidden="true"></i></td>
                 </div>
-                <div class="col-md-7">
-                    <progress role="progressbar" [attr.value]="value4" [attr.max]="maxValue"></progress>
+                <div class="col-md-1 div-start">
+                    <h5 class="number"> {{value4}} </h5>
+                </div>
+                <div class="col-md-6">
+                    <progress role="progressbar" [attr.value]="value4" [attr.max]="200"></progress>
                 </div>
               </div>
               <br>
@@ -43,8 +48,11 @@
                   <td><i class="fa fa-star fa-2x" aria-hidden="true"></i></td>
                   <td><i class="fa fa-star fa-2x" aria-hidden="true"></i></td>
                 </div>
-                <div class="col-md-7">
-                    <progress role="progressbar" [attr.value]="value3" [attr.max]="maxValue"></progress>
+                <div class="col-md-1 div-start">
+                    <h5 class="number"> {{value3}} </h5>
+                </div>
+                <div class="col-md-6">
+                    <progress role="progressbar" [attr.value]="value3" [attr.max]="200"></progress>
                 </div>
               </div>
               <br>
@@ -53,8 +61,11 @@
                   <td><i class="fa fa-star fa-2x" aria-hidden="true"></i></td>
                   <td><i class="fa fa-star fa-2x" aria-hidden="true"></i></td>
                 </div>
-                <div class="col-md-7">
-                    <progress role="progressbar" [attr.value]="value2" [attr.max]="maxValue"></progress>
+                <div class="col-md-1 div-start">
+                    <h5 class="number"> {{value2}} </h5>
+                </div>
+                <div class="col-md-6">
+                    <progress role="progressbar" [attr.value]="value2" [attr.max]="200"></progress>
                 </div>
               </div>
               <br>
@@ -62,8 +73,11 @@
                 <div class="col-md-5 div-center">
                   <td><i class="fa fa-star fa-2x" aria-hidden="true"></i></td>
                 </div>
-                <div class="col-md-7">
-                    <progress role="progressbar" [attr.value]="value1" [attr.max]="maxValue"></progress>
+                <div class="col-md-1 div-start">
+                    <h5 class="number"> {{value1}} </h5>
+                </div>
+                <div class="col-md-6">
+                    <progress role="progressbar" [attr.value]="value1" [attr.max]="200"></progress>
                 </div>
               </div>
               <br>
@@ -72,7 +86,7 @@
                   <h5 class="average">AVERAGE RATING:</h5>
                 </div>
                 <div class="col-md-7 div-start">
-                  <h5 class="averageNumber">{{averageRating}} / 5.00</h5>
+                  <h5 class="number">{{averageRating}} / 5.00</h5>
                 </div>
               </div>
             </div>
@@ -95,7 +109,7 @@
                   (ngModel) is giving param "rating" in and passes it to #ratingForm!
                   Using ngSumbit to call method in movie-detail.component where ratingForm.value == formValues - GOOD !!!
                   -->
-                  <form #ratingForm="ngForm" (ngSubmit)="getRating(ratingForm.value)">
+                  <form #ratingForm="ngForm" (ngSubmit)="saveRating(ratingForm.value)">
                     <div class="row">
                       <div class="col-md-8 div-center">
                         <button type="submit" class="btn btn-secondary">Add Your vote!</button>
