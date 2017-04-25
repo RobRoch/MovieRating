@@ -37,7 +37,6 @@ export class MovieDetailComponent implements OnInit {
               private ratingService: RatingService,
               private route:ActivatedRoute,
               private router: Router) {
-
               this.Math = Math;
   }
 

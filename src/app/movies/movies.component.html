@@ -1,4 +1,20 @@
-<app-search-bar></app-search-bar>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-5 col-10">
+      <form id="searchForm" (ngSubmit)="searchMovies(searchTerm)" class="navbar-form">
+        <div class="input-group">
+
+          <input [(ngModel)]="searchTerm" name="searchTerm"  type="text" class="form-control" placeholder="Movie title..">
+          <button class="btn btn-secondary">Search</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-1 col-2">
+        <button (click)="sortBy()" class="btn btn-secondary"><i  class="fa fa-sort-alpha-asc fa-lg" aria-hidden="true"></i></button>
+    </div>
+  </div>
+</div>
+<br>
 <div class="container">
     <div class="row justify-content-between">
 
@@ -7,7 +23,7 @@
            
       <app-movie-list [routerLink]="['/movies', movie.id]" 
       class="col-md-4 borderless pointer" 
-      *ngFor="let movie of movies" 
+      *ngFor="let movie of filteredMovies" 
       [movie]="movie"></app-movie-list>
 
       <!-- ngFor let movie of movies iterates one item, next item etc. (movie reads property id from movies)

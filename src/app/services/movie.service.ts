@@ -11,12 +11,11 @@ export class MovieService {
   constructor(private http:Http) { }
 
 //getting all movies from http url. Need to map response which will keep pushing json to IMovie array.
-//and i'll catch errors with handleError made at the bottom.
+
   getMovies():Observable<IMovie[]>{
     return this.http.get(this.moviesUrl)
                     .map((res:Response) => res.json());
-   // old code
-   // return MOVIES;
+
   }
 
 // getting 1 movie json by id:, used Model IMovie for return type check.
@@ -25,11 +24,6 @@ export class MovieService {
   getMovie(id: number):Observable<IMovie> {
     return this.getMovies()
                .map(movies => movies.find(movie => movie.id == id));
-  }
-
-//TODO SEARCH!!!
-  searchMovies(str: string) {
-    return ;
   }
 
 }
