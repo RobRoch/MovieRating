@@ -1,7 +1,7 @@
 
 # TODO 
 
-15.04.2017
+27.04.2017
 https://movie-ranking.herokuapp.com/
 
 - changed my learning technique, trying to comment everything i do, so i can be able to visualize data placement. (or at least try)
@@ -10,23 +10,25 @@ https://movie-ranking.herokuapp.com/
 I guess i'm not able to do this // I made it with ng2-bootstrap using ViewChild, ModalDirective and ModalModule. Sadly my modal didn't have bootstrap style.
 It's something with ng2-bootstrap working with bootstrap 3 and is not used to bootstrap4? Maybe gonna come back later with more knownledge. Removing modal -> doing input instead.
 
-
 - rating :id
-Managed to get ratings for every bar.
-Problem is averageRating. Tried to maybe map my averageRating to IMovie array but i think it's bad idea.
-Gonna try to push data from movie-detail.component to movie-list.component. (DEAD)
-Average rating inside movie-detail.component,
+Big issue! Downloading all rating 5 times and then filtering to get values.
+After input again! Gonna try BehaviorSubject
 
-
-- input - 
-poor styling
-input works but doesn't give me IRating data type.
+- input vote- 
+Poor styling with number type.
+Maybe change it later.
 
 - searchbar
-- asceding/descending
-- vote :id
-- http instead of hardcoded db
+It's working fine, choose to use search button with it.
 
+- asceding/descending
+It's working. Works like this (normal -> asc -> desc -> asc -> desc -> etc.)
+
+- http instead of hardcoded db
+After few days it's working. Observables made this hard for me ;)
+
+-Error input vote
+Gonna do toastr maybe to announce error?
 
 # MovieRating
 

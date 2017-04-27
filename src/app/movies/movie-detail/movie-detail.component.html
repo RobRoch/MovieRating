@@ -1,5 +1,5 @@
 <section>
-  <div class="container col-md-10">
+  <div class="container col-lg-10">
     <div class="card">
       <div class="row">
         <div class="col-md-8">
@@ -9,126 +9,113 @@
             <br>
             <div class="card-text">
               <div class="row">
-                <div class="col-md-5 div-center">
+                <div class="stars col-md-5 col-8 div-center">
                   <td><i class="fa fa-star fa-2x" aria-hidden="true"></i></td>
                   <td><i class="fa fa-star fa-2x" aria-hidden="true"></i></td>
                   <td><i class="fa fa-star fa-2x" aria-hidden="true"></i></td>
                   <td><i class="fa fa-star fa-2x" aria-hidden="true"></i></td>
                   <td><i class="fa fa-star fa-2x" aria-hidden="true"></i></td>
                 </div>
-                <div class="col-md-1 div-start">
-                    <h5 class="number"> {{value5}} </h5>
+                <div class="vals col-md-1 col-4 div-start">
+                  <h5 class="number"> {{value5}} </h5>
                 </div>
                 <div class="col-md-6">
-                    <!-- used progress instead of div. Looks okayish. Binded value5 to value and maxValue! -->
-                    <!-- MAYBE ADD ANIMATION LATER -->
-                    <progress role="progressbar" [attr.value]="value5" [attr.max]="250"></progress>
-
+                  <!-- used progress instead of div. Looks okayish. Binded value5 to value
+                         Have problems to bind max attribute -->
+                  <progress role="progressbar" [attr.value]="value5" [attr.max]="250"></progress>
                 </div>
               </div>
               <br>
               <div class="row">
-                <div class="col-md-5 div-center">
+                <div class="stars col-md-5 col-8 div-center">
                   <td><i class="fa fa-star fa-2x" aria-hidden="true"></i></td>
                   <td><i class="fa fa-star fa-2x" aria-hidden="true"></i></td>
                   <td><i class="fa fa-star fa-2x" aria-hidden="true"></i></td>
                   <td><i class="fa fa-star fa-2x" aria-hidden="true"></i></td>
                 </div>
-                <div class="col-md-1 div-start">
-                    <h5 class="number"> {{value4}} </h5>
+                <div class="vals col-md-1 col-4 div-start">
+                  <h5 class="number"> {{value4}} </h5>
                 </div>
                 <div class="col-md-6">
-                    <progress role="progressbar" [attr.value]="value4" [attr.max]="250"></progress>
+                  <progress role="progressbar" [attr.value]="value4" [attr.max]="250"></progress>
                 </div>
               </div>
               <br>
               <div class="row">
-                <div class="col-md-5 div-center">
+                <div class="stars col-md-5 col-8 div-center">
                   <td><i class="fa fa-star fa-2x" aria-hidden="true"></i></td>
                   <td><i class="fa fa-star fa-2x" aria-hidden="true"></i></td>
                   <td><i class="fa fa-star fa-2x" aria-hidden="true"></i></td>
                 </div>
-                <div class="col-md-1 div-start">
-                    <h5 class="number"> {{value3}} </h5>
+                <div class="vals col-md-1 col-4 div-start">
+                  <h5 class="number"> {{value3}} </h5>
                 </div>
                 <div class="col-md-6">
-                    <progress role="progressbar" [attr.value]="value3" [attr.max]="250"></progress>
+                  <progress role="progressbar" [attr.value]="value3" [attr.max]="250"></progress>
                 </div>
               </div>
               <br>
               <div class="row">
-                <div class="col-md-5 div-center">
+                <div class="stars col-md-5 col-8 div-center">
                   <td><i class="fa fa-star fa-2x" aria-hidden="true"></i></td>
                   <td><i class="fa fa-star fa-2x" aria-hidden="true"></i></td>
                 </div>
-                <div class="col-md-1 div-start">
-                    <h5 class="number"> {{value2}} </h5>
+                <div class="vals col-md-1 col-4 div-start">
+                  <h5 class="number"> {{value2}} </h5>
                 </div>
                 <div class="col-md-6">
-                    <progress role="progressbar" [attr.value]="value2" [attr.max]="250"></progress>
+                  <progress role="progressbar" [attr.value]="value2" [attr.max]="250"></progress>
                 </div>
               </div>
               <br>
               <div class="row">
-                <div class="col-md-5 div-center">
+                <div class="stars col-md-5 col-8 div-center">
                   <td><i class="fa fa-star fa-2x" aria-hidden="true"></i></td>
                 </div>
-                <div class="col-md-1 div-start">
-                    <h5 class="number"> {{value1}} </h5>
+                <div class="vals col-md-1 col-4 div-start">
+                  <h5 class="number"> {{value1}} </h5>
                 </div>
                 <div class="col-md-6">
-                    <progress role="progressbar" [attr.value]="value1" [attr.max]="250"></progress>
+                  <progress role="progressbar" [attr.value]="value1" [attr.max]="250"></progress>
                 </div>
               </div>
               <br>
               <div class="row rating">
-                <div class="col-md-5 div-center">
+                <div class="col-md-5 col-7 div-center">
                   <h5 class="average">AVERAGE RATING:</h5>
                 </div>
-                <div class="col-md-7 div-start">
-                  <h5 class="number">{{(this.Math.round((value1*1 + value2*2 + value3*3 + value4*4 + value5*5)*100/(value1*1+value2*1+value3*1+value4*1+value5*1))/100).toFixed(2)}} / 5.00</h5>
+                <div class="vals col-md-7 col-5 div-start">
+                  <h5 class="number">{{(this.Math.round((value1*1 + value2*2 + value3*3 + value4*4 + value5*5)*100/(value1*1+value2*1+value3*1+value4*1+value5*1))/100).toFixed(2)}}
+                    / 5.00</h5>
                 </div>
               </div>
             </div>
             <br>
             <div class="card-text">
-              <div class="row justify-content-center">
-                <div class="col-md-5 col-6 div-center">
-
+              <div class="row justify-content-around">
+                <div class="return col-md-5">
                   <!-- routes to /movies after button click -->
                   <button [routerLink]="['/movies']" type="button" class="btn btn-secondary ">Return</button>
-
-              
                 </div>
-                <br>
-                <div class="col-md-7 col-6 div-start">
-
-                  <!-- making a ngForm for rating system. 
+                <!-- making a ngForm for rating system. 
                   Using ngSubmit that is passing fron ngModel one way binding in input and takes #ratingForm.value - WRONG!!!
                   
                   (ngModel) is giving param "rating" in and passes it to #ratingForm!
                   Using ngSumbit to call method in movie-detail.component where ratingForm.value == formValues - GOOD !!!
                   -->
+                <div class="form col-md-7">
                   <form #ratingForm="ngForm" (ngSubmit)="saveRating(ratingForm.value)">
-                    <div class="row">
-                      <div class="col-md-8 div-center">
-                        <button type="submit" class="btn btn-secondary">Add Your vote!</button>
-                      </div>
-                      <div class="col-md-4">
-                        <!-- ngModel should have name with same "rating" but only for validation purposes, i don't really need that this time' -->
-                        <input (ngModel)="rating" name="rating" id="rating" type="number" class="form-control" placeholder="1 - 5" min="1" max="5"
-                        />
-                      </div>
-                    </div>
+                    <button type="submit" class="btn btn-secondary">Your vote!</button>
+                    <!-- ngModel should have name with same "rating" but only for validation purposes, i don't really need that this time' -->
+                    <input (ngModel)="rating" name="rating" id="rating" type="number" class="btn btn-secondary" placeholder="1 - 5" min="1" max="5"
+                    />
                   </form>
-
-
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 card-img-top">
           <img class="card-img-bottom" src="{{movie?.poster}}" alt="Card image cap">
         </div>
       </div>
