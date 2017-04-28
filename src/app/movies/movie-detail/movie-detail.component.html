@@ -105,7 +105,8 @@
                   -->
                 <div class="form col-md-7">
                   <form #ratingForm="ngForm" (ngSubmit)="saveRating(ratingForm.value)">
-                    <button type="submit" class="btn btn-secondary">Your vote!</button>
+                    <button type="submit" class="btn btn-secondary" *ngIf="isError2">Add your vote!</button>
+                    <button type="submit" class="btn btn-secondary" *ngIf="isError">Choose 1 to 5!</button>
                     <!-- ngModel should have name with same "rating" but only for validation purposes, i don't really need that this time' -->
                     <input (ngModel)="rating" name="rating" id="rating" type="number" class="btn btn-secondary" placeholder="1 - 5" min="1" max="5"
                     />

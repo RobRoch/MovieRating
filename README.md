@@ -12,7 +12,7 @@ It's something with ng2-bootstrap working with bootstrap 3 and is not used to bo
 
 - rating :id
 Big issue! Downloading all rating 5 times and then filtering to get values.
-After input again! Gonna try BehaviorSubject
+After input again! Gonna try BehaviorSubject.
 
 - input vote- 
 Poor styling with number type.
@@ -27,8 +27,9 @@ It's working. Works like this (normal -> asc -> desc -> asc -> desc -> etc.)
 - http instead of hardcoded db
 After few days it's working. Observables made this hard for me ;)
 
--Error input vote
-Gonna do toastr maybe to announce error?
+- error input vote
+Only when null i get error. When other numbers than 1-5, it's doing nothing.
+
 
 # MovieRating
 

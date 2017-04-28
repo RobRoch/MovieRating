@@ -14,16 +14,19 @@ export class MoviesComponent implements OnInit {
   //Made filteredMovies and sortedMovies arrays to show them or compare in methods.
   filteredMovies: IMovie[];
   sortedMovies: IMovie[];
-
   //calling private moviesService: MovieService in constructor 
   //it's assigning MovieService to this class property of movieService.
   //my methods gonna go look to this constructor and then constructor moves them to movie.service.ts to get themselves.
   constructor(private movieService: MovieService) { }
 
-  ngOnInit() {
-    //onInit i wanna receive movies so i'm calling service with my method getMovies().
-    //taking this.movies and when filtering them assigning to movies values.
+  // i wanna receive movies so i'm calling service with my method getMovies().
+  //taking this.movies and when filtering them assigning to movies values.
+  getMovies():void {
     this.movieService.getMovies().subscribe(movies => this.movies = this.filteredMovies = movies);
+  }
+
+  ngOnInit() {
+    this.getMovies();
   }
 
   //Assigning to filteredMovies and then replacing this.movies with this.

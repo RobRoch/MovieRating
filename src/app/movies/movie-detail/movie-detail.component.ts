@@ -28,6 +28,10 @@ export class MovieDetailComponent implements OnInit {
   value2: String;
   value1: String;
 
+  isError: boolean = false;
+  isError2: boolean = true;
+
+  formValues:number = 1;
   //Using this.route.snapshot.params to get current id, i can push it later to my methods.
   paramId: number = +this.route.snapshot.params['id']
   Math: any;
@@ -71,10 +75,18 @@ export class MovieDetailComponent implements OnInit {
   //pushing values using saveRating method and formValues from Form in html. Taking paramId to push directly to movie.
   //after push i'm getting rating again, and i'm DOWNLOADING all the 5 ratings again. Very big issue.
   saveRating(formValues) {
-    this.ratingService.saveRating(this.paramId, formValues).subscribe(rating => {
+    if(formValues.rating == null) {
+      console.log(formValues)
+      this.isError = true;
+      this.isError2 = false;
+    }
+    else {
+      this.ratingService.saveRating(this.paramId, formValues).subscribe(rating => {
       console.log(rating)
-      this.getRating()
-    });
+      this.isError = false;
+      this.isError2 = true;
+      this.getRating()});
+    }
   }
 }
 
