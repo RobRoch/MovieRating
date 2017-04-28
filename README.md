@@ -1,9 +1,25 @@
+Used:
+npm : 4.0.5
+node: 6.9.2
+
+To run this : NPM INSTALL -> NG SERVE
 
 # TODO 
 
-27.04.2017
+28.04.2017
 https://movie-ranking.herokuapp.com/
 
+In v2:
+- change input to something nicer, maybe i'll get this modal working and some star choosing rating.
+- solve problem with input formValues (hardwritten other numbers than 1-5 make error, but after choosing 1-5 it's not pushing values to db - stackoverlow this maybe)
+- try to get rid of performance issue,
+- add movies (if possible with those dbs? I guess it can be blocked)
+
+In v3
+- try to connect to my own mongodb and publish it.
+
+
+Already done in v1:
 - changed my learning technique, trying to comment everything i do, so i can be able to visualize data placement. (or at least try)
 
 - modal (DEAD)
