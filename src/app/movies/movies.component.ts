@@ -14,6 +14,8 @@ export class MoviesComponent implements OnInit {
   //Made filteredMovies and sortedMovies arrays to show them or compare in methods.
   filteredMovies: IMovie[];
   sortedMovies: IMovie[];
+
+  searchTerm: String;
   //calling private moviesService: MovieService in constructor 
   //it's assigning MovieService to this class property of movieService.
   //my methods gonna go look to this constructor and then constructor moves them to movie.service.ts to get themselves.

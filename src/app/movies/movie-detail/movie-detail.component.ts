@@ -20,9 +20,11 @@ export class MovieDetailComponent implements OnInit {
   
   // I don't need this for now.
   // rating: IRating[];
+  rating:any;
 
   //TODO maxValue - maybe after BehaviorSubject?
   //maxValue:String;
+  avr:any;
 
   value5: String;
   value4: String;
@@ -70,6 +72,7 @@ export class MovieDetailComponent implements OnInit {
   ngOnInit() {
     this.getMovie();
     this.getRating();
+    this.avr = (this.Math.round((+this.value1*1 + +this.value2*2 + +this.value3*3 + +this.value4*4 + +this.value5*5)*100/(+this.value1+ +this.value2+ +this.value3+ +this.value4+ +this.value5))/100).toFixed(2)
   }
 
   //pushing values using saveRating method and formValues from Form in html. Taking paramId to push directly to movie.
