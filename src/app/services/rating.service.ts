@@ -14,6 +14,7 @@ export class RatingService {
   getMovieRating(id: number): Observable<IRating[]> {
     return this.http.get("https://movie-ranking.herokuapp.com/movies/" + id.toString() + "/ratings")
       .map((res: Response) => res.json())
+      .map(rating => rating.rating)
       .catch(this.handleError);
   }
 

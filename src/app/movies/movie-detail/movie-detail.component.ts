@@ -17,7 +17,9 @@ export class MovieDetailComponent implements OnInit {
 
   // Declaring my variables to models etc.
   movie: IMovie;
-  rating: IRating[];
+  
+  // I don't need this for now.
+  // rating: IRating[];
 
   //TODO maxValue - maybe after BehaviorSubject?
   //maxValue:String;
@@ -49,10 +51,10 @@ export class MovieDetailComponent implements OnInit {
     this.movieService.getMovie(this.paramId).subscribe(movie => this.movie = movie);
   }
 
-  //Using paramId to get specific Ratings.
-  getRatings(): void {
-    this.ratingService.getMovieRating(this.paramId).subscribe((rating) => this.rating = rating);
-  }
+  //Using paramId to get specific Ratings. I don't need this for now.
+  // getRatings(): void {
+  //   this.ratingService.getMovieRating(this.paramId).subscribe((rating) => this.rating = rating);
+  // }
 
 
   //Don't know how to bind observable to variable (BehaviorSubject maybe??). Hardcoded all 5 values.
@@ -67,9 +69,7 @@ export class MovieDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getMovie();
-    this.getRatings();
     this.getRating();
-    
   }
 
   //pushing values using saveRating method and formValues from Form in html. Taking paramId to push directly to movie.
