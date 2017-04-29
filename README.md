@@ -14,6 +14,7 @@ In v2:
 - solve problem with input formValues (hardwritten other numbers than 1-5 make error, but after choosing 1-5 it's not pushing values to db - stackoverlow this maybe)
 - try to get rid of performance issue,
 - add movies (if possible with those dbs? I guess it can be blocked)
+- hardcoded maxValue - use maxValue of those 5 ratings.
 
 In v3
 - try to connect to my own mongodb and publish it.

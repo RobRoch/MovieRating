@@ -22,7 +22,7 @@
                 <div class="col-md-6">
                   <!-- used progress instead of div. Looks okayish. Binded value5 to value
                          Have problems to bind max attribute -->
-                  <progress role="progressbar" [attr.value]="value5" [attr.max]="250"></progress>
+                  <progress role="progressbar" [attr.value]="value5" [attr.max]="Math.max(value1*1,value2*1,value3*1,value4*1,value5*1)"></progress>
                 </div>
               </div>
               <br>
@@ -37,7 +37,7 @@
                   <h5 class="number"> {{value4}} </h5>
                 </div>
                 <div class="col-md-6">
-                  <progress role="progressbar" [attr.value]="value4" [attr.max]="250"></progress>
+                  <progress role="progressbar" [attr.value]="value4" [attr.max]="Math.max(value1*1,value2*1,value3*1,value4*1,value5*1)"></progress>
                 </div>
               </div>
               <br>
@@ -51,7 +51,7 @@
                   <h5 class="number"> {{value3}} </h5>
                 </div>
                 <div class="col-md-6">
-                  <progress role="progressbar" [attr.value]="value3" [attr.max]="250"></progress>
+                  <progress role="progressbar" [attr.value]="value3" [attr.max]="Math.max(value1*1,value2*1,value3*1,value4*1,value5*1)"></progress>
                 </div>
               </div>
               <br>
@@ -64,7 +64,7 @@
                   <h5 class="number"> {{value2}} </h5>
                 </div>
                 <div class="col-md-6">
-                  <progress role="progressbar" [attr.value]="value2" [attr.max]="250"></progress>
+                  <progress role="progressbar" [attr.value]="value2" [attr.max]="Math.max(value1*1,value2*1,value3*1,value4*1,value5*1)"></progress>
                 </div>
               </div>
               <br>
@@ -76,7 +76,7 @@
                   <h5 class="number"> {{value1}} </h5>
                 </div>
                 <div class="col-md-6">
-                  <progress role="progressbar" [attr.value]="value1" [attr.max]="250"></progress>
+                  <progress role="progressbar" [attr.value]="value1" [attr.max]="value5*1>value4*1?value5:value4*1>value3*1?value4:value3*1>value2*1?value3:value2*1>value1*1?value2:value1"></progress>
                 </div>
               </div>
               <br>

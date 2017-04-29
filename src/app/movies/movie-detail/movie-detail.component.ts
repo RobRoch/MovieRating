@@ -65,11 +65,11 @@ export class MovieDetailComponent implements OnInit {
     this.ratingService.getStar(this.paramId, 1).subscribe(rating => this.value1 = rating);
   }
 
-
   ngOnInit() {
     this.getMovie();
     this.getRatings();
     this.getRating();
+    
   }
 
   //pushing values using saveRating method and formValues from Form in html. Taking paramId to push directly to movie.
@@ -88,5 +88,7 @@ export class MovieDetailComponent implements OnInit {
       this.getRating()});
     }
   }
+  
+
 }
 
