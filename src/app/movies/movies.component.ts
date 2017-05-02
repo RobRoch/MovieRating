@@ -39,8 +39,8 @@ export class MoviesComponent implements OnInit {
   //Pushing data to new sortedMovies and checking if it's sorted already.
   //Sort ascending, and when it's done, it reverses array on next click and so on. (normal -> asc -> desc -> asc -> desc etc..)
   sortBy() {
-    if (this.sortedMovies != this.movies) {
-      this.sortedMovies = this.movies.sort(function (m1: IMovie, m2: IMovie) {
+    if (this.sortedMovies != this.filteredMovies) {
+      this.sortedMovies = this.filteredMovies.sort(function (m1: IMovie, m2: IMovie) {
         var movieA = m1.title.toLowerCase(), movieB = m2.title.toLowerCase();
         return movieA < movieB ? -1 : movieA > movieB ? 1 : 0;
       })}
