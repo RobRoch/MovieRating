@@ -14,12 +14,10 @@ export class MoviesComponent implements OnInit {
   //Made filteredMovies and sortedMovies arrays to show them or compare in methods.
   filteredMovies: IMovie[];
   sortedMovies: IMovie[];
-
   searchTerm: String;
-  //calling private moviesService: MovieService in constructor 
-  //it's assigning MovieService to this class property of movieService.
-  //my methods gonna go look to this constructor and then constructor moves them to movie.service.ts to get themselves.
-  constructor(private movieService: MovieService) { }
+
+  constructor(private movieService: MovieService) {
+   }
 
   // i wanna receive movies so i'm calling service with my method getMovies().
   //taking this.movies and when filtering them assigning to movies values.
@@ -44,13 +42,8 @@ export class MoviesComponent implements OnInit {
     if (this.sortedMovies != this.movies) {
       this.sortedMovies = this.movies.sort(function (m1: IMovie, m2: IMovie) {
         var movieA = m1.title.toLowerCase(), movieB = m2.title.toLowerCase();
-        if (movieA < movieB)
-          return -1
-        else if (movieA > movieB)
-          return 1
-        else 0
-      })
-    }
+        return movieA < movieB ? -1 : movieA > movieB ? 1 : 0;
+      })}
     else {
       this.sortedMovies.reverse();
     }

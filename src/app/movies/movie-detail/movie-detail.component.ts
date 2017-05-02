@@ -14,36 +14,24 @@ import { IRating } from '../../models/rating.model';
 })
 export class MovieDetailComponent implements OnInit {
 
-
   // Declaring my variables to models etc.
   movie: IMovie;
-  
-  // I don't need this for now.
-  // rating: IRating[];
-  rating:any;
-
-  //TODO maxValue - maybe after BehaviorSubject?
-  //maxValue:String;
-  avr:any;
-
+  rating: Array<any> = [];
   value5: String;
   value4: String;
   value3: String;
   value2: String;
   value1: String;
-
   isError: boolean = false;
   isError2: boolean = true;
-
-  formValues:number = 1;
+  formValues:number;
   //Using this.route.snapshot.params to get current id, i can push it later to my methods.
   paramId: number = +this.route.snapshot.params['id']
   Math: any;
 
   constructor(private movieService: MovieService,
-    private ratingService: RatingService,
-    private route: ActivatedRoute) {
-
+              private ratingService: RatingService,
+              private route: ActivatedRoute) {
     //used Math to make calculations in html. I don't think it's good idea, but it's working for now.
     this.Math = Math;
   }
@@ -53,30 +41,26 @@ export class MovieDetailComponent implements OnInit {
     this.movieService.getMovie(this.paramId).subscribe(movie => this.movie = movie);
   }
 
-  //Using paramId to get specific Ratings. I don't need this for now.
-  // getRatings(): void {
-  //   this.ratingService.getMovieRating(this.paramId).subscribe((rating) => this.rating = rating);
-  // }
-
-
-  //Don't know how to bind observable to variable (BehaviorSubject maybe??). Hardcoded all 5 values.
-  //It doesn't look good, but at the moment i have no idea how to make it better. Need feedback from someone.
-  getRating(): void {
-    this.ratingService.getStar(this.paramId, 5).subscribe(rating => this.value5 = rating);
-    this.ratingService.getStar(this.paramId, 4).subscribe(rating => this.value4 = rating);
-    this.ratingService.getStar(this.paramId, 3).subscribe(rating => this.value3 = rating);
-    this.ratingService.getStar(this.paramId, 2).subscribe(rating => this.value2 = rating);
-    this.ratingService.getStar(this.paramId, 1).subscribe(rating => this.value1 = rating);
+  // Using paramId to get specific Ratings. I don't need this for now.
+  getRatings(): void {
+    this.ratingService.getMovieRating(this.paramId);
+    this.ratingService.currentRating.subscribe((rating: Array<any>) => {
+        this.rating = rating;
+        this.value5 = this.rating.filter((rating) => rating.rating == 5).length.toString();
+        this.value4 = this.rating.filter((rating) => rating.rating == 4).length.toString();
+        this.value3 = this.rating.filter((rating) => rating.rating == 3).length.toString();
+        this.value2 = this.rating.filter((rating) => rating.rating == 2).length.toString();
+        this.value1 = this.rating.filter((rating) => rating.rating == 1).length.toString();
+      });
   }
 
   ngOnInit() {
     this.getMovie();
-    this.getRating();
-    this.avr = (this.Math.round((+this.value1*1 + +this.value2*2 + +this.value3*3 + +this.value4*4 + +this.value5*5)*100/(+this.value1+ +this.value2+ +this.value3+ +this.value4+ +this.value5))/100).toFixed(2)
+    this.getRatings();
   }
 
   //pushing values using saveRating method and formValues from Form in html. Taking paramId to push directly to movie.
-  //after push i'm getting rating again, and i'm DOWNLOADING all the 5 ratings again. Very big issue.
+  //after push i'm doin this.getRatings() to update my data.
   saveRating(formValues) {
     if(formValues.rating == null) {
       console.log(formValues)
@@ -88,10 +72,8 @@ export class MovieDetailComponent implements OnInit {
       console.log(rating)
       this.isError = false;
       this.isError2 = true;
-      this.getRating()});
-    }
+      this.getRatings()});
+    };
   }
-  
-
 }
 

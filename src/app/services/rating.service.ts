@@ -1,30 +1,27 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject, Subject } from 'rxjs';
 import { IRating } from '../models/rating.model';
 
 @Injectable()
 
 export class RatingService {
 
+  //Making BehaviorSubject to store data.
+  currentRating: Subject<Array<any>> = new BehaviorSubject<Array<any>>([]);
+
   constructor(private http: Http) {
   }
 
-  // Received filtered array with array.prototype.filter method. I'm gonna filter movie_id attribute with id path of movies.
-  getMovieRating(id: number): Observable<IRating[]> {
-    return this.http.get("https://movie-ranking.herokuapp.com/movies/" + id.toString() + "/ratings")
+  //Getting movie rating using movie_id as parameter. Then subscribing and pushing data to my currentRating BehaviorSubject.
+  getMovieRating(id:number) {
+    this.http.get("https://movie-ranking.herokuapp.com/movies/" + id.toString() + "/ratings")
       .map((res: Response) => res.json())
-      .map(rating => rating.rating)
-      .catch(this.handleError);
-  }
-
-  //used my filtered movie array, and used the star (1-5) parameter.
-  //used filter method to get all 1,2,3,4,5 values. Have problems to make nice method for all values at once with observable.
-  getStar(id: number, star: number): Observable<String> {
-    return this.http.get("https://movie-ranking.herokuapp.com/movies/" + id.toString() + "/ratings")
-      .map((res: Response) => res.json())
-      .map(rating => rating.filter((rating) => rating.rating == star).length.toString())
-      .catch(this.handleError);
+      .catch(this.handleError)
+      .subscribe(
+        (rating: any) => { this.currentRating.next(rating); },
+        () => console.log("Yay got all this movie rating downloaded!")
+      );
   }
 
   //Saving input using id to url and formValues. Cool.
