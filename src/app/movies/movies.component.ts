@@ -31,8 +31,7 @@ export class MoviesComponent implements OnInit {
 
   //Assigning to filteredMovies and then replacing this.movies with this.
   searchMovies(searchTerm) {
-    searchTerm.toLowerCase();
-    this.filteredMovies = this.movies.filter(movies => movies.title.toLowerCase().includes(searchTerm))
+    this.filteredMovies = this.movies.filter(movies => movies.title.toLowerCase().includes(searchTerm.toLowerCase()))
   }
 
   //Trying not to use pipe, sorting and searching shouldn't be done by pipe - Angular Team.
