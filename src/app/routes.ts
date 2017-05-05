@@ -6,11 +6,11 @@ import { MovieDetailComponent } from './movies/movie-detail/movie-detail.compone
 import { MoviesComponent } from './movies/movies.component';
 
 export const appRoutes:Routes = [
-    { path: 'movies', component: MoviesComponent },
+    { path: '', component: MoviesComponent },
     //using :id parameter to access MovieDetails.
     { path: 'movies/:id', component: MovieDetailComponent},
     //empty path redirects to MoviesComponent.
-    { path: '', redirectTo: '/movies', pathMatch: 'full'},
+    { path: '', redirectTo: '', pathMatch: 'full'},
     //random path that is not in my base, it's gonna be MovieComponent again
-    { path: '**', redirectTo: '/movies', pathMatch: 'full'}
+    { path: '**', redirectTo: '', pathMatch: 'full'}
 ]
