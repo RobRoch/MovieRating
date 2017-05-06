@@ -6,7 +6,6 @@ import { RatingService } from '../../services/rating.service';
 import { IMovie } from '../../models/movie.model';
 import { IRating } from '../../models/rating.model';
 
-
 @Component({
   selector: 'app-movie-detail',
   templateUrl: './movie-detail.component.html',
@@ -16,12 +15,13 @@ export class MovieDetailComponent implements OnInit {
 
   // Declaring my variables to models etc.
   movie: IMovie;
-  rating: Array<any> = [];
+  rating: Array<IRating> = [];
   value5: String;
   value4: String;
   value3: String;
   value2: String;
   value1: String;
+
   isError: boolean = false;
   isError2: boolean = true;
   formValues:number;
@@ -44,7 +44,7 @@ export class MovieDetailComponent implements OnInit {
   // Using paramId to get specific Ratings. I don't need this for now.
   getRatings(): void {
     this.ratingService.getMovieRating(this.paramId);
-    this.ratingService.currentRating.subscribe((rating: Array<any>) => {
+    this.ratingService.currentRating.subscribe((rating: Array<IRating>) => {
         this.rating = rating;
         this.value5 = this.rating.filter((rating) => rating.rating == 5).length.toString();
         this.value4 = this.rating.filter((rating) => rating.rating == 4).length.toString();
@@ -62,18 +62,18 @@ export class MovieDetailComponent implements OnInit {
   //pushing values using saveRating method and formValues from Form in html. Taking paramId to push directly to movie.
   //after push i'm doin this.getRatings() to update my data.
   saveRating(formValues) {
-    if(formValues.rating == null) {
-      console.log(formValues)
-      this.isError = true;
-      this.isError2 = false;
-    }
-    else {
-      this.ratingService.saveRating(this.paramId, formValues).subscribe(rating => {
-      console.log(rating)
-      this.isError = false;
-      this.isError2 = true;
-      this.getRatings()});
-    };
-  }
+      this.ratingService.saveRating(this.paramId, formValues)
+                        .subscribe(
+                            (rating) => {
+                                console.log(rating)
+                                this.isError = false;
+                                this.isError2 = true;
+                                this.getRatings()
+                              },
+                            (err) => {
+                                this.isError = true;
+                                this.isError2 = false;
+                              });
+                         };
 }
 

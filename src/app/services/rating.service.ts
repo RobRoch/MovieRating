@@ -8,7 +8,7 @@ import { IRating } from '../models/rating.model';
 export class RatingService {
 
   //Making BehaviorSubject to store data.
-  currentRating: Subject<Array<any>> = new BehaviorSubject<Array<any>>([]);
+  currentRating: Subject<Array<IRating>> = new BehaviorSubject<Array<IRating>>([]);
 
   constructor(private http: Http) {
   }
@@ -19,7 +19,7 @@ export class RatingService {
       .map((res: Response) => res.json())
       .catch(this.handleError)
       .subscribe(
-        (rating: any) => { this.currentRating.next(rating); },
+        (rating: IRating[]) => { this.currentRating.next(rating); },
         () => console.log("Yay got all this movie rating downloaded!")
       );
   }

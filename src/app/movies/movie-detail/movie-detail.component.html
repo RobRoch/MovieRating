@@ -81,38 +81,32 @@
                 </div>
               </div>
               <br>
-              <div class="row rating">
-                <div class="col-md-5 col-7 div-center">
-                  <h5 class="average">AVERAGE RATING:</h5>
-                </div>
-                <div class="vals col-md-7 col-5 div-start">
-                  <!-- Math.max all values.. Don't know why +value1 doesn't give me back number. Maybe it's Number. Had problems on ng build -prod. Errors of typings. This fixes it for now.. -->
-                  <h5 class="number">{{(Math.round((Math.max(value1)*1 + Math.max(value2)*2 + Math.max(value3)*3 + Math.max(value4)*4 + Math.max(value5)*5)*100/(Math.max(value1)*1 + Math.max(value2)*1 + Math.max(value3)*1 + Math.max(value4)*1 + Math.max(value5)*1))/100).toFixed(2)}}
+              <div class="row">
+                <div class="form col-md-12">
+                  <h5 class="average">AVERAGE RATING: {{(Math.round((Math.max(value1)*1 + Math.max(value2)*2 + Math.max(value3)*3 + Math.max(value4)*4 + Math.max(value5)*5)*100/(Math.max(value1)*1 + Math.max(value2)*1 + Math.max(value3)*1 + Math.max(value4)*1 + Math.max(value5)*1))/100).toFixed(2)}}
                     / 5.00 </h5>
                 </div>
               </div>
             </div>
             <br>
             <div class="card-text">
-              <div class="row justify-content-around">
-                <div class="return col-md-5">
-                  <!-- routes to /movies after button click -->
-                  <button [routerLink]="['/movies']" type="button" class="btn btn-secondary ">Return</button>
-                </div>
+              <div class="row">
                 <!-- making a ngForm for rating system. 
                   Using ngSubmit that is passing fron ngModel one way binding in input and takes #ratingForm.value - WRONG!!!
                   
                   (ngModel) is giving param "rating" in and passes it to #ratingForm!
                   Using ngSumbit to call method in movie-detail.component where ratingForm.value == formValues - GOOD !!!
                   -->
-                <div class="form col-md-7">
-                  <form #ratingForm="ngForm" (ngSubmit)="saveRating(ratingForm.value)">
-                    <button type="submit" class="btn btn-secondary" *ngIf="isError2">Add your vote!</button>
-                    <button type="submit" class="btn btn-secondary" *ngIf="isError">Choose 1 to 5!</button>
-                    <!-- ngModel should have name with same "rating" but only for validation purposes, i don't really need that this time' -->
-                    <input (ngModel)="rating" name="rating" id="rating" type="number" class="btn btn-secondary" placeholder="1 - 5" min="1" max="5"
-                    />
+                <div class="form col-md-8 push-md-4">
+                  <form #ratingForm="ngForm" (ngSubmit)="saveRating(ratingForm.value)" class="d-flex align-items-stretch">
+                    <button type="submit" class="btn btn-secondary" *ngIf="isError2">Your vote!</button>
+                    <button type="submit" class="btn btn-secondary" *ngIf="isError">Choose!</button>
+                    <rating [(ngModel)]="rating" id="rating" name="rating" iconClass="star" fullIcon="&#xf005;" emptyIcon="&#xf006;"></rating>
                   </form>
+                </div>
+                <div class="return col-md-4 pull-md-8">
+                  <!-- routes to /movies after button click -->
+                  <button [routerLink]="['/movies']" type="button" class="btn btn-secondary ">Return</button>
                 </div>
               </div>
             </div>

@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule, JsonpModule } from '@angular/http';
+import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { RatingModule} from 'ngx-rating';
 
 import { MovieService } from './services/movie.service';
 import { RatingService } from './services/rating.service';
@@ -14,6 +15,7 @@ import { MovieListComponent } from './movies/movie-list/movie-list.component';
 import { FooterComponent } from './footer/footer.component';
 import { MovieDetailComponent } from './movies/movie-detail/movie-detail.component';
 import { MoviesComponent } from './movies/movies.component';
+
 
 
 
@@ -30,7 +32,7 @@ import { MoviesComponent } from './movies/movies.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    JsonpModule,
+    RatingModule,
     RouterModule.forRoot(appRoutes),
   ],
   providers: [
