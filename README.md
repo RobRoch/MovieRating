@@ -1,4 +1,4 @@
-<a href="https://robroch.github.io/MovieRating/">#DEMO</a>
+# <a href="https://robroch.github.io/MovieRating/">DEMO</a>
 
 # TODO 
 
