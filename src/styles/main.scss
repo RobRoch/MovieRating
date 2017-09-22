@@ -240,9 +240,12 @@ footer > ul > li > a:hover, a:focus  {
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 380px) {
   .average {
-    font-size:1.25rem;
+    font-size:1.15rem;
+  }
+  .form {
+    font-size:0.80rem;
   }
 }
 

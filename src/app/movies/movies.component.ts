@@ -14,7 +14,7 @@ export class MoviesComponent implements OnInit {
   //Made filteredMovies and sortedMovies arrays to show them or compare in methods.
   filteredMovies: IMovie[];
   sortedMovies: IMovie[];
-  searchTerm: String;
+  searchTerm: String = "";
 
   constructor(private movieService: MovieService) {
    }
